@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page of VoV</title>
+    <title>Реєстрація</title>
+    <style>
+        body {
+            background-color: rgb(109, 205, 127);
+        }
+        h1 {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 40px;
+        }
+        input {
+            width: 100px;
+            height: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>nice to meet y'all</h1>
+    <div class="section">
+        <center>
+            <h1><span>Реєстрація</span></h1>
+        </center>
+    </div>
+    <form name="signup" method="GET">
+        Ім'я:<input type="text" id="first name" name="first name" placeholder="Ім'я" /><br><br>
+        Прізвище:<input type="text" id="last name" name="last name" placeholder="Прізвище" /><br><br>
+        Пошта:<input type="text" id="email" name="email" size="30" placeholder="Пошта" /><br><br>
+        Пароль:<input type="text" id="password" name="password" placeholder="Пароль" />
+        <button type="button" id="generate-button">Generate</button><br><br>  
+        Номер телефону:<input type="tel" id="phone no." name="phone no." placeholder="Номер телефону" /><br><br>
+        Стать:
+        <input type="radio" id="gender" name="gender" value="male"/>Чоловік
+        <input type="radio" id="gender" name="gender" value="female" />Жінка<br><br>
+        Дата народження<input type="date"><br><br>
+        Час народження<input type="time"><br><br>
+        <input type="checkbox" value="terms">Я приймаю умови та положення через <a href="">Умови та Положення</a></input></br><br>
+
+        <button type="submit">Зареєструватись</button>
+        <button type="reset">Очистити</button><br>
+        <script>
+            let chars = `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*()`;
+            let n = chars.length;
+    
+            let inputEl = document.querySelector("#password");
+            const generateButton = document.querySelector("#generate-button");
+    
+            generateButton.addEventListener("click", function () {
+                let password = "";
+                const length = 8;
+                inputEl.value =""
+                
+                for (let i = 0; i < length; i++) {
+                    password += chars.charAt(Math.floor(Math.random() * n));
+                }
+                inputEl.value = password;
+            });
+        </script>
+    </form>
+
 </body>
+
 </html>
